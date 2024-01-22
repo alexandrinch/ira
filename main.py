@@ -77,6 +77,7 @@ def select_page():
         return render_template('select.html', data=data)
     return render_template('select.html')
 
+
 @app.route('/select_age', methods=['GET', 'POST'])
 def select_age_page():
     if request.method == 'POST':
@@ -85,18 +86,21 @@ def select_age_page():
         order_by = request.form.get('order_by')
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        query = "SELECT name, sname, grname FROM students WHERE sex={sex} HAVING day >= {more_than}"
-        if order_by:
-            query += f' ORDER BY grname ASC, sname {order_by}'
-        else:
-            query += f' ORDER BY grname ASC, sname {order_by}'
-        c.execute(query, (sex, more_than))
-        data = c.fetchall()
+        query = c.execute(f'''SELECT name,sname,grname 
+                            FROM students 
+                            WHERE sex='{sex}' AND day>'{more_than}' 
+                            ORDER BY grname {order_by}, sname {order_by};
+                            ''')
+        data = query.fetchall()
         conn.close()
         return render_template('select_age.html', data=data)
     return render_template('select_age.html')
 
 
+@app.route('/create', methods=['POST'])
+def create_page():
+    if request.method == 'POST':
+        create_database()
+
 if __name__ == '__main__':
-    create_database()
     app.run()

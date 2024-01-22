@@ -4,7 +4,7 @@
             <a href="home">home page</a>
             <a href="insert">insert</a>
             <a href="delete">delete</a>
-            <a href="select">select by group</a>
+            <a href="select" style="background-color: black">select by group</a>
             <a href="select_age">select by sex</a>
             <a href="home" style="float:right">create</a>
 {% endblock %}
@@ -24,7 +24,7 @@
         </div>
         <p>Order by:</p>
         <p><input type="radio" name="order_by" value="DESC"> sort descending</p>
-        <p><input type="radio" name="order_by" value="ASC"> sort ascending</p>
+        <p><input type="radio" name="order_by" value="ASC" checked> sort ascending</p>
         <input type="submit" value="Select">
     </form>
     {% if data %}
