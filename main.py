@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+
 def create_database():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
@@ -17,6 +18,7 @@ def create_database():
     conn.close()
 
 
+@app.route('/home')
 @app.route('/')
 def home_page():
     conn = sqlite3.connect('database.db')
