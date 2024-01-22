@@ -1,9 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Select</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block menu %}
+            <a href="home">home page</a>
+            <a href="insert">insert</a>
+            <a href="delete">delete</a>
+            <a href="select">select by group</a>
+            <a href="home">select by sex</a>
+            <a href="home" style="float:right">create</a>
+{% endblock %}
+
+{% block text %}
     <h1>Select</h1>
     <form action="/select" method="POST">
         <p><input type="text" name="grname" required> Group</p>
@@ -31,5 +37,4 @@
         {% endfor %}
     </table>
     {% endif %}
-</body>
-</html>
+{% endblock %}

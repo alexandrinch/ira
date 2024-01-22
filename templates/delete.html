@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block menu %}
+            <a href="home">home page</a>
+            <a href="insert">insert</a>
+            <a href="delete">delete</a>
+            <a href="select">select by group</a>
+            <a href="home">select by sex</a>
+            <a href="home" style="float:right">create</a>
+{% endblock %}
+
+{% block text %}
     <h1>Delete</h1>
     <form action="/delete" method="POST">
         <p><input type="text" name="name" required> Name</p>
         <p><input type="text" name="sname" required> Surname</p>
         <input type="submit" value="Delete">
     </form>
-</body>
-</html>
+{% endblock %}

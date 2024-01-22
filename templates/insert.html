@@ -1,9 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Insert</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block menu %}
+            <a href="home">home page</a>
+            <a href="insert">insert</a>
+            <a href="delete">delete</a>
+            <a href="select">select by group</a>
+            <a href="home">select by sex</a>
+            <a href="home" style="float:right">create</a>
+{% endblock %}
+
+{% block text %}
     <h1>Insert</h1>
     <form action="/insert" method="POST">
         <p><input type="text" name="name" required> Name</p>
@@ -13,5 +19,4 @@
         <p><input type="number" name="day" value="15" min="1" max="31" required> Day of Birth</p>
         <input type="submit" value="Insert">
     </form>
-</body>
-</html>
+{% endblock %}

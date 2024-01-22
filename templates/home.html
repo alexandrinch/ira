@@ -1,9 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>HomePage</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block menu %}
+            <a href="home">home page</a>
+            <a href="insert">insert</a>
+            <a href="delete">delete</a>
+            <a href="select">select by group</a>
+            <a href="home">select by sex</a>
+            <a href="home" style="float:right">create</a>
+{% endblock %}
+
+
+{% block text %}
     <h1>HomePage</h1>
     <table>
         <tr>
@@ -22,5 +29,4 @@
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+{% endblock %}
