@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: "aesthetic", serif;
-
 }
 
 body {
@@ -9,8 +8,6 @@ body {
   padding: 12px;
   margin: 0;
   background: #f1f1f1;
-  background: url(images/mybg.png)
-  background-size: cover;
 }
 
 .header{
