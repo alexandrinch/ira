@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select</title>
+</head>
+<body>
+    <h1>Select</h1>
+    <form action="/select" method="POST">
+        <p><input type="text" name="grname" required> Group</p>
+        <p>Order by:</p>
+        <p><input type="radio" name="order_by" value="name"> Name</p>
+        <p><input type="radio" name="order_by" value="sname"> Surname</p>
+        <input type="submit" value="Select">
+    </form>
+    {% if data %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Group</th>
+            <th>Sex</th>
+            <th>Day of Birth</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
