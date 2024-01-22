@@ -66,14 +66,35 @@ def select_page():
         order_by = request.form.get('order_by')
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        query = 'SELECT * FROM students WHERE grname=?'
+        query = 'SELECT name, sname FROM students WHERE grname=?'
         if order_by:
-            query += f' ORDER BY {order_by}'
+            query += f' ORDER BY sname {order_by}'
+        else:
+            query += f' ORDER BY sname {order_by}'
         c.execute(query, (grname,))
         data = c.fetchall()
         conn.close()
         return render_template('select.html', data=data)
     return render_template('select.html')
+
+@app.route('/select_age', methods=['GET', 'POST'])
+def select_age_page():
+    if request.method == 'POST':
+        sex = request.form['sex']
+        more_than = request.form['more_than']
+        order_by = request.form.get('order_by')
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        query = "SELECT name, sname, grname FROM students WHERE sex={sex} HAVING day >= {more_than}"
+        if order_by:
+            query += f' ORDER BY grname ASC, sname {order_by}'
+        else:
+            query += f' ORDER BY grname ASC, sname {order_by}'
+        c.execute(query, (sex, more_than))
+        data = c.fetchall()
+        conn.close()
+        return render_template('select_age.html', data=data)
+    return render_template('select_age.html')
 
 
 if __name__ == '__main__':

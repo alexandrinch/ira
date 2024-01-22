@@ -13,18 +13,19 @@
     <h1>Select</h1>
     <form action="/select" method="POST">
         <div>
-            <input type="radio" name="grname" value="iu4-11b"/>
-            <label >iu4-11b</label>
-            <input type="radio" name="grname" value="iu4-12b" />
-            <label >iu4-12b</label>
-            <input type="radio" name="grname" value="iu4-13b" checked/>
-            <label >iu4-13b</label>
-            <input type="radio" name="grname" value="rt2-11b" />
-            <label >rt2-11b</label>
+            <input type="radio" name="sex" value="man" checked/>
+            <label >man</label>
+            <input type="radio" name="sex" value="woman"/>
+            <label >woman</label>
         </div>
+        <p>More than<input type="number" name="day" value="1" min="1" max="31" required>Day</p>
         <p>Order by:</p>
-        <p><input type="radio" name="order_by" value="DESC"> sort descending</p>
-        <p><input type="radio" name="order_by" value="ASC"> sort ascending</p>
+        <div>
+            <input type="radio" name="order_by" value="DESC">
+            <label>sort descending</label>
+            <input type="radio" name="order_by" value="ASC">
+            <label>sort ascending</label>
+        </div>
         <input type="submit" value="Select">
     </form>
     {% if data %}
@@ -32,6 +33,7 @@
         <tr>
             <th>Name</th>
             <th>Surname</th>
+            <th>Group</th>
         </tr>
         {% for row in data %}
         <tr>

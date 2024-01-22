@@ -5,7 +5,7 @@
             <a href="insert">insert</a>
             <a href="delete">delete</a>
             <a href="select">select by group</a>
-            <a href="home">select by sex</a>
+            <a href="select_age">select by sex</a>
             <a href="home" style="float:right">create</a>
 {% endblock %}
 
@@ -14,9 +14,24 @@
     <form action="/insert" method="POST">
         <p><input type="text" name="name" required> Name</p>
         <p><input type="text" name="sname" required> Surname</p>
-        <p><input type="text" name="grname" required> Group</p>
-        <p><input type="text" name="sex" required> Sex</p>
-        <p><input type="number" name="day" value="15" min="1" max="31" required> Day of Birth</p>
+
+        <div>
+            <input type="radio" name="grname" value="iu4-11b"/>
+            <label >iu4-11b</label>
+            <input type="radio" name="grname" value="iu4-12b" />
+            <label >iu4-12b</label>
+            <input type="radio" name="grname" value="iu4-13b" checked/>
+            <label >iu4-13b</label>
+            <input type="radio" name="grname" value="rt2-11b" />
+            <label >rt2-11b</label>
+        </div>
+        <div>
+            <input type="radio" name="sex" value="man"/>
+            <label>man</label>
+            <input type="radio" name="sex" value="woman" />
+            <label>woman</label>
+        </div>
+        <p><input type="number" name="day" value="1" min="1" max="31" required> Day of Birth</p>
         <input type="submit" value="Insert">
     </form>
 {% endblock %}
